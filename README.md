@@ -7,7 +7,7 @@ The files will contain one event per file with the following format:
 	{"Type":"Alarm", "Date":"2017-02-01 10:01:01", "name":"fire", "floor":"1", "Room": "101"}
 	{"Type":"img", "Date":"2017-02-01 10:01:02", "bytes": "ab39szh6", "size": 8}
 	
-The program will then print out the status information every second see ecxmple below for sample output:
+The program will then print out the status information every second see example below for sample output:
 
 	Event Count: 8, Door Count: 2, Image Count: 1, Alarm Count: 5, avgProcessingTime: 10ms
 
