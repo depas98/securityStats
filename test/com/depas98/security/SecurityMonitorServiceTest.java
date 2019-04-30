@@ -40,7 +40,6 @@ public class SecurityMonitorServiceTest {
         SecurityMonitorService service = SecurityMonitorServiceImpl.getInstance();
 
         final List<SecurityType> securityData = new ArrayList<>();
-        final int processingTime = 10;
 
         // Test no data case
         service.addSecurityData(securityData, 0);

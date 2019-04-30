@@ -14,8 +14,8 @@ public interface SecurityMonitorService {
     void addSecurityData(List<SecurityType> securityEvents, long processingTime);
 
     /**
-     * Return stats information
-     * @return
+     * Return stats (status) information
+     * @return stats
      */
     String getStats();
 

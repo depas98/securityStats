@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * This task will read and process recent files that have the following format:
+ * This task class will read and process recent files that have the following format:
  *
  *      {"Type":"Door", "Date":"2017-02-01 10:01:02", "open": true}
  */
@@ -53,7 +53,7 @@ public class SecurityFileReaderTask extends TimerTask {
             return;
         }
 
-        // parse the recent files and create a List of Security Types for them and store in the list below
+        // parse the recent files and create a List of Security Types for them and store them in the list below
         List<SecurityType> securityEvents = new ArrayList<>();
         for (Path path:paths) {
             try(Stream<String> linesStream = Files.lines(path)) {   // this will close the file after reading is done
@@ -80,10 +80,8 @@ public class SecurityFileReaderTask extends TimerTask {
     }
 
     /**
-     * This will take in a string representing a line in a file.  It will then parse the
-     * line to get the Security Type.
-     *
-     * If the line is not the correct format, it will return a empty string.
+     * This will parse a string representing a line in a file.  If the line is not the correct format,
+     * it will return a empty string otherwise it will return a string representing the security type
      * Format will be similar to the following:
      *
      *      {"Type":"Door", "Date":"2017-02-01 10:01:02", "open": true}
@@ -116,7 +114,7 @@ public class SecurityFileReaderTask extends TimerTask {
      * This will return a list of Path (file path) objects, using the current relative path
      * and will filter out file paths that are not more recent than the latestFileTime
      * @param latestFileTime - time that is used to compare against the file path times
-     * @return List of Path objects that are nore recent than the latestFileTime
+     * @return List of Path objects that are more recent than the latestFileTime
      */
     private List<Path> getRecentFilePaths(final long latestFileTime){
         final Path currentRelativePath = Paths.get("");

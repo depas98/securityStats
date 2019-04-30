@@ -61,7 +61,7 @@ public class SecurityMonitorServiceImpl implements SecurityMonitorService {
         }
 
         if (newProcessingTime < 0){
-            throw new IllegalArgumentException("newprocessingTime can't be negative");
+            throw new IllegalArgumentException("newProcessingTime can't be negative");
         }
 
         writeLock.lock();

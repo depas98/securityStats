@@ -10,9 +10,9 @@ import java.util.Timer;
  *
  *      {"Type":"Door", "Date":"2017-02-01 10:01:02", "open": true}
 
- * The other task is {@Link SecurityStatsWriterTask}, this will output the stats from the data read from the
- * files processed in the other {@link SecurityFileReaderTask}.
- * The output will be like the following:
+ * The other task is {@link SecurityStatsWriterTask}, this will output the status information
+ * from the data read from the files processed in the other {@link SecurityFileReaderTask}.
+ * The output will have the following format:
  *
  * 	    Event Count: 8, Door Count: 2, Image Count: 1, Alarm Count: 5, avgProcessingTime: 10ms
  *

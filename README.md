@@ -17,7 +17,7 @@ The program will then print out the status information every second see example 
 	3. Only one task thread for printing out status
 	4. Service doesn't store each event item added, only stores the status information 
 	(event counts, and avgProcessingTime) 
-	5. Files are only read from the <prgrams home>/files directory Note: Four files are already 
+	5. Files are only read from the <program's home>/files directory Note: Four files are already
 	included in the Files directory
 	6. The program only checks the last modified date of a file, so if a file is updated it 
 	will be processed	
