@@ -15,12 +15,12 @@ The program will then print out the status information every second see ecxmple 
 	1. Security Types can only be "DOOR", "ALARM", or "IMG"
 	2. Only one task thread for reading in files
 	3. Only one task thread for printing out status
-	4. Service doesn't store each event item added, only stores the status 
-	information (event counts, and avgProcessingTime) 
-	5. Files are only read from the <prgrams home>/files directory Note: 
-	Four files are already included in the Files directory
-	6. The program only checks the last modified date of a file, so if a 
-	file is updated it will be processed	
+	4. Service doesn't store each event item added, only stores the status information 
+	(event counts, and avgProcessingTime) 
+	5. Files are only read from the <prgrams home>/files directory Note: Four files are already 
+	included in the Files directory
+	6. The program only checks the last modified date of a file, so if a file is updated it 
+	will be processed	
     
 ### Instructions For Running Program
 
