@@ -1,16 +1,29 @@
 package com.depas98.security;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.Timer;
 
+/**
+ * This class can start and stop two tasks that will be scheduled to run every second.
+ * One task is {@link SecurityFileReaderTask}, it will read and process recent files
+ * that have the following format:
+ *
+ *      {"Type":"Door", "Date":"2017-02-01 10:01:02", "open": true}
+
+ * The other task is {@Link SecurityStatsWriterTask}, this will output the stats from the data read from the
+ * files processed in the other {@link SecurityFileReaderTask}.
+ * The output will be like the following:
+ *
+ * 	    Event Count: 8, Door Count: 2, Image Count: 1, Alarm Count: 5, avgProcessingTime: 10ms
+ *
+ */
 public class SecurityMonitor {
 
     private final SecurityFileReaderTask fileReaderTask;
     private final SecurityStatsWriterTask statsWriterTask;
     private final Timer fileReaderTimer;
     private final Timer statsWriterTimer;
+
 
     public SecurityMonitor(){
         this.fileReaderTask = new SecurityFileReaderTask(SecurityMonitorServiceImpl.getInstance());
@@ -35,33 +48,38 @@ public class SecurityMonitor {
         statsWriterTimer.cancel();
     }
 
+    /**
+     * This will start the two task File Reader and Stats Writer
+     */
     public void startUp(){
         startSecurityFileReader();
         startSecurityStatsWriter();
     }
 
+    /**
+     * This will stop the two task File Reader and Stats Writer
+     */
     public void shutDown(){
         stopSecurityReader();
         stopSecurityStatsWriter();
     }
 
     public static void main(String[] args) {
-        Path currentRelativePath = Paths.get("");
-        String s = currentRelativePath.toAbsolutePath().toString();
-        System.out.println("Current relative path is: " + s);
 
         String inputVal = "";
         Scanner scan = new Scanner(System.in);
 
+        // Create and startup the monitor
         SecurityMonitor securityMonitor = new SecurityMonitor();
         securityMonitor.startUp();
 
         while (!inputVal.equalsIgnoreCase("q")
                 && !inputVal.equalsIgnoreCase("quit")){
-            System.out.println("working...");
+            // get user input and exit if "q" or "quit"
             inputVal = scan.next();
         }
 
+        // shutdown the monitor
         securityMonitor.shutDown();
 
     }

@@ -4,7 +4,23 @@ import java.util.List;
 
 public interface SecurityMonitorService {
 
-    void addSecurityData(List<SecurityType> securityData, long processingTime);
+    /**
+     * Takes in a list of SecurityTypes and updates the stats
+     * with he information
+     *
+     * @param securityEvents List of Security Types that represent a security event
+     * @param processingTime Time it too to collect the security data
+     */
+    void addSecurityData(List<SecurityType> securityEvents, long processingTime);
+
+    /**
+     * Return stats information
+     * @return
+     */
     String getStats();
+
+    /**
+     * Clears out stats to the initial state
+     */
     void clearStats();
 }
